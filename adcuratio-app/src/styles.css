@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+
+  .login-background {
+    background-image: url(assets/images/login-background.jpeg);
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+  }
+
+  .login-form {
+    background: #fff;
+    border-radius: 4px;
+    width: 230px;
+    padding: 20px;
+    z-index: 1;
+    position: relative;
+    height: 250px;
+    text-align: center;
+    border: 0 !important;
+    margin: auto;
+  }
+
+  .login-form-margin{
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .login-form-logo {
+    /* margin-bottom: 6%; */
+
+  }
+
+  .login-form-logo-img {
+    text-align: center;
+  }
+
+  .login-form-text {
+    font-size: 24px;
+  }
+
+  .login-form-input-box {
+    position: relative;
+  }
+
+  .login-form-input-icon-div {
+    position: absolute;
+    z-index: 1;
+    padding-left: 4px;
+  }
+
+  .login-form-input-icon-email {
+    font-size: 19px !important;
+    line-height: 1.65 !important;
+
+  }
+
+  .login-form-input-icon-lock {
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+  }
+
+  .login-form-input {
+    width: 100%;
+    line-height: 1.8;
+    padding-left: 30px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .login-form-error {
+    color: red;
+    margin-top: 1.5%;
+    font-weight: 500;
+  }

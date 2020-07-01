@@ -1,0 +1,39 @@
+<div class="login-background">
+
+  <form class="login-form noselect" name="form" (submit) = "login()">
+
+      <div class="login-form-logo">
+        <img src="../../assets/images/logo.png" class="login-form-logo-img">
+      </div>
+
+      <div class="login-form-input-box login-form-margin">
+        <div class="login-form-input-icon-div">
+          <mat-icon class="login-form-input-icon-email">email</mat-icon>
+        </div>
+        <input class="login-form-input default-input" name="enail" placeholder="Email ID" [(ngModel)]="userModel.email">
+      </div>
+
+
+
+      <div class="login-form-input-box">
+        <div class="login-form-input-icon-div">
+          <mat-icon class="login-form-input-icon-lock">lock</mat-icon>
+        </div>
+        <input class="login-form-input" name="password" placeholder="Password" [(ngModel)]="userModel.password">
+      </div>
+
+      <div class="login-form-error">
+        <a>Invalid Credentials</a>
+      </div>
+
+      <div >
+        <a routerLink="/register" >Don't have an account? Sign Up</a>
+      </div>
+
+      <div class="login-form-margin">
+        <button mat-raised-button color="primary" type="submit" >Login</button>
+      </div>
+
+  </form>
+
+</div>
