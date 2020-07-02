@@ -11,7 +11,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NgbTooltipConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
    declarations: [
@@ -27,11 +27,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       MatIconModule,
       MatTooltipModule,
       MatButtonModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      NgbModule
    ],
    providers: [
      MatTooltipModule,
-     AuthService
+     AuthService,
+     NgbTooltipConfig
    ],
    bootstrap: [
       AppComponent

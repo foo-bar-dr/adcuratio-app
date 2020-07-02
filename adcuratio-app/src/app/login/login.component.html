@@ -12,10 +12,11 @@
         </div>
         <input class="login-form-input default-input" name="email" placeholder="Email ID" formControlName="email">
         <mat-icon class="login-form-warning-icon"
+        *ngIf="!this.loginForm.controls.email.untouched">warning</mat-icon>
+        <mat-icon class="login-form-warning-icon"
         *ngIf="!this.loginForm.controls.email.untouched && this.loginForm.controls.email.errors">warning</mat-icon>
+
       </div>
-
-
 
       <div class="login-form-input-box">
         <div class="login-form-input-icon-div">

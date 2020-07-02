@@ -1,6 +1,6 @@
 <div class="login-background">
 
-  <form class="login-form noselect" name="form" (submit) = "register()">
+  <form class="login-form noselect" name="form" (submit) = "register()" [formGroup]="registrationForm">
 
       <div class="login-form-logo">
         <img src="../../assets/images/logo.png" class="login-form-logo-img">
@@ -16,6 +16,9 @@
           <mat-icon class="login-form-input-icon-email">email</mat-icon>
         </div>
         <input class="login-form-input default-input" placeholder="Enter your email ID" formControlName="email">
+        <mat-icon class="login-form-warning-icon"
+        *ngIf="!this.registrationForm.controls.email.untouched && this.registrationForm.controls.email.errors">warning</mat-icon>
+
       </div>
 
 
@@ -25,20 +28,55 @@
           <mat-icon class="login-form-input-icon-lock">lock</mat-icon>
         </div>
         <input class="login-form-input" placeholder="Choose a password" type="password" formControlName="password">
+        <mat-icon class="login-form-warning-icon"
+        [ngbTooltip] = "passwordTip">info</mat-icon>
       </div>
 
       <div class="login-form-input-box login-form-margin">
         <div class="login-form-input-icon-div">
           <mat-icon class="login-form-input-icon-lock">lock</mat-icon>
         </div>
-        <input class="login-form-input" placeholder="Confirm password" type="password" formControlName="password">
+        <input class="login-form-input" placeholder="Confirm password" type="password" formControlName="password2">
       </div>
 
       <div>
-        <button mat-button color="primary" routerLink=''>Cancel</button>
-        <button mat-raised-button color="primary" type="submit">Register</button>
+        <button mat-button color="primary" routerLink='' type="reset">Cancel</button>
+        <!-- <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid" >Register</button> -->
+        <button mat-raised-button color="primary" type="submit"  >Register</button>
       </div>
 
   </form>
+
+  <ng-template #passwordTip style="text-align: left;">
+      <p class="login-form-tooltip-text">
+        <mat-icon *ngIf="this.registrationForm.value.password.length >= 9" class="login-form-tooltip-icon color-green">check</mat-icon>
+        <mat-icon *ngIf="this.registrationForm.value.password.length < 9" class="login-form-tooltip-icon color-red">close</mat-icon>
+          More than 8 characters
+      </p>
+
+      <p class="login-form-tooltip-text">
+        <mat-icon *ngIf="!(this.registrationForm.controls.password.errors && this.registrationForm.controls.password.errors.noLower)" class="login-form-tooltip-icon color-green">check</mat-icon>
+        <mat-icon *ngIf="this.registrationForm.controls.password.errors && this.registrationForm.controls.password.errors.noLower" class="login-form-tooltip-icon color-red">close</mat-icon>
+          1 Lower Case [a-z]
+      </p>
+
+      <p class="login-form-tooltip-text">
+        <mat-icon *ngIf="!(this.registrationForm.controls.password.errors && this.registrationForm.controls.password.errors.noUpper)" class="login-form-tooltip-icon color-green">check</mat-icon>
+        <mat-icon *ngIf="this.registrationForm.controls.password.errors && this.registrationForm.controls.password.errors.noUpper" class="login-form-tooltip-icon color-red">close</mat-icon>
+          1 Upper Case [A-Z]
+      </p>
+
+      <p class="login-form-tooltip-text">
+        <mat-icon *ngIf="!(this.registrationForm.controls.password.errors && this.registrationForm.controls.password.errors.noNumber)" class="login-form-tooltip-icon color-green">check</mat-icon>
+        <mat-icon *ngIf="this.registrationForm.controls.password.errors && this.registrationForm.controls.password.errors.noNumber" class="login-form-tooltip-icon color-red">close</mat-icon>
+          1 Number [0-9]
+      </p>
+
+      <p class="login-form-tooltip-text">
+        <mat-icon *ngIf="!(this.registrationForm.controls.password.errors && this.registrationForm.controls.password.errors.noSpecial)" class="login-form-tooltip-icon color-green">check</mat-icon>
+        <mat-icon *ngIf="this.registrationForm.controls.password.errors && this.registrationForm.controls.password.errors.noSpecial" class="login-form-tooltip-icon color-red">close</mat-icon>
+          1 Special Character [!@#$%^&*]
+      </p>
+  </ng-template>
 
 </div>
