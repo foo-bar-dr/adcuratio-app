@@ -1,6 +1,6 @@
 <div class="login-background">
 
-  <form class="login-form noselect" name="form" (submit) = "login()">
+  <form class="login-form noselect" name="form" (submit) = "login()" [formGroup]="loginForm">
 
       <div class="login-form-logo">
         <img src="../../assets/images/logo.png" class="login-form-logo-img">
@@ -10,7 +10,9 @@
         <div class="login-form-input-icon-div">
           <mat-icon class="login-form-input-icon-email">email</mat-icon>
         </div>
-        <input class="login-form-input default-input" name="enail" placeholder="Email ID" [(ngModel)]="userModel.email">
+        <input class="login-form-input default-input" name="email" placeholder="Email ID" formControlName="email">
+        <mat-icon class="login-form-warning-icon"
+        *ngIf="!this.loginForm.controls.email.untouched && this.loginForm.controls.email.errors">warning</mat-icon>
       </div>
 
 
@@ -19,7 +21,10 @@
         <div class="login-form-input-icon-div">
           <mat-icon class="login-form-input-icon-lock">lock</mat-icon>
         </div>
-        <input class="login-form-input" name="password" placeholder="Password" [(ngModel)]="userModel.password">
+        <input class="login-form-input" name="password" id="password" type="password" #password
+         placeholder="Password" formControlName="password" required ng-touched>
+        <mat-icon class="login-form-warning-icon" matTooltip="Required"
+         *ngIf="!this.loginForm.controls.password.untouched && this.loginForm.controls.password.errors">warning</mat-icon>
       </div>
 
       <div class="login-form-error">
