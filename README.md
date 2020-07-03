@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Running the application
 
-This application can be accessed via GitHub pages: https://foo-bar-dr.github.io/adcuratio-app
+This application can be accessed via GitHub pages: https://foo-bar-dr.github.io/adcuratio-app/docs
 
 For running locally, read the following guide for pre-requisites:
 https://angular.io/guide/setup-local#prerequisites
