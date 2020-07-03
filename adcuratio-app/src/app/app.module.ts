@@ -18,6 +18,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
    declarations: [
@@ -40,7 +41,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
       MatMenuModule,
       MatTableModule,
       MatSortModule,
-      MatSlideToggleModule
+      MatSlideToggleModule,
+      MatSnackBarModule
    ],
    providers: [
      MatTooltipModule,

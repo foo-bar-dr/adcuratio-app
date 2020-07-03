@@ -1,5 +1,6 @@
 import { User } from './../models/user';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class AuthService {
 
   public savedUsersArray = [];
 
-constructor() {
+constructor(private snackBar: MatSnackBar) {
   if (localStorage.getItem('savedUsers') === null) {
     localStorage.setItem('savedUsers', JSON.stringify([]));
   }
@@ -42,6 +43,9 @@ constructor() {
 
  logoutUser() {
    localStorage.removeItem('currentUser');
+   this.snackBar.open('User has been logged out', 'DISMISS', {
+    duration: 3000,
+  });
  }
 
 }

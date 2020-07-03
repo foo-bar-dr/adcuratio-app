@@ -16,7 +16,7 @@
           <mat-icon class="login-form-input-icon-email">email</mat-icon>
         </div>
         <input class="login-form-input default-input" placeholder="Enter your email ID" formControlName="email">
-        <mat-icon class="login-form-warning-icon"
+        <mat-icon class="login-form-warning-icon" matTooltip="Invalid Email ID"
         *ngIf="!this.registrationForm.controls.email.untouched && this.registrationForm.controls.email.errors">warning</mat-icon>
 
       </div>
@@ -28,7 +28,7 @@
           <mat-icon class="login-form-input-icon-lock">lock</mat-icon>
         </div>
         <input class="login-form-input" placeholder="Choose a password" type="password" formControlName="password">
-        <mat-icon class="login-form-warning-icon"
+        <mat-icon class="login-form-warning-icon" [ngClass]="{'warning-icon-black': this.registrationForm.controls.password.untouched || !this.registrationForm.controls.password.errors}"
         [ngbTooltip] = "passwordTip">info</mat-icon>
       </div>
 
@@ -37,12 +37,14 @@
           <mat-icon class="login-form-input-icon-lock">lock</mat-icon>
         </div>
         <input class="login-form-input" placeholder="Confirm password" type="password" formControlName="password2">
+        <mat-icon class="login-form-warning-icon" matTooltip="Passwords do not match"
+        *ngIf="!this.registrationForm.controls.password2.untouched && this.registrationForm.value.password !== this.registrationForm.value.password2">warning</mat-icon>
       </div>
 
       <div>
         <button mat-button color="primary" routerLink='' type="reset">Cancel</button>
-        <!-- <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid" >Register</button> -->
-        <button mat-raised-button color="primary" type="submit"  >Register</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid" >Register</button>
+        <!-- <button mat-raised-button color="primary" type="submit"  >Register</button> -->
       </div>
 
   </form>
