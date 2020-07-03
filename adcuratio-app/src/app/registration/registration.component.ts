@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { NgbTooltipConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +13,9 @@ export class RegistrationComponent implements OnInit {
   public registrationForm: FormGroup;
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
-              config: NgbTooltipConfig) {
+              private router: Router,
+              config: NgbTooltipConfig)
+               {
                 config.placement = 'right';
                 config.triggers = 'hover';
                }
@@ -21,6 +24,7 @@ export class RegistrationComponent implements OnInit {
     console.log(this.registrationForm);
     if (this.registrationForm.valid) {
       this.authService.newUser(this.registrationForm.value.email, this.registrationForm.value.password);
+      this.router.navigate(['/']).catch(() => console.log('An error occured'));
     }
   }
 

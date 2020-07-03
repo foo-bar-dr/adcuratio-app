@@ -10,7 +10,8 @@
         <div class="login-form-input-icon-div">
           <mat-icon class="login-form-input-icon-email">email</mat-icon>
         </div>
-        <input class="login-form-input default-input" name="email" placeholder="Email ID" formControlName="email">
+        <input class="login-form-input default-input" name="email" placeholder="Email ID"
+        formControlName="email" (input) = "failMessage = ''">
 
         <mat-icon class="login-form-warning-icon" matTooltip="Invalid E-mail"
         *ngIf="!this.loginForm.controls.email.untouched && this.loginForm.controls.email.errors">warning</mat-icon>
@@ -22,7 +23,7 @@
           <mat-icon class="login-form-input-icon-lock">lock</mat-icon>
         </div>
         <input class="login-form-input" name="password" id="password" type="password" #password
-         placeholder="Password" formControlName="password" required ng-touched>
+         placeholder="Password" formControlName="password" (input) = "failMessage = ''">
         <mat-icon class="login-form-warning-icon" matTooltip="Password must be more than 8 characters long"
          *ngIf="!this.loginForm.controls.password.untouched && this.loginForm.controls.password.errors">warning</mat-icon>
       </div>

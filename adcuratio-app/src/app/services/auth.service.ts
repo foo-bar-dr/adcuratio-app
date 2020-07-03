@@ -40,4 +40,8 @@ constructor() {
   }
  }
 
+ logoutUser() {
+   localStorage.removeItem('currentUser');
+ }
+
 }
