@@ -1,0 +1,64 @@
+<nav class="navbar-expand-lg nav-header " style=" height: 60px; background-color: #3f51b5;">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+  <div class="navbar-logo">
+    <a [routerLink]="['/home']">
+      <img src="../../../assets/images/logo-navbar.png">
+    </a>
+  </div>
+
+  <div class="navbar-profile">
+    <button mat-icon-button class="navbarRoundImageButton" [mat-menu-trigger-for]="menu">
+      <img src="../../../assets/images/person.jpg" class="navbarRoundImage">
+    </button>
+
+    <mat-menu #menu="matMenu" >
+      <button mat-menu-item (click) = "onLogOut()">Log Out</button>
+    </mat-menu>
+
+  </div>
+</nav>
+<div class="home-padding-left-right-top" >
+  <mat-slide-toggle [(ngModel)]="rawData">Raw Data</mat-slide-toggle>
+</div>
+
+<div class="home-table" *ngIf="!rawData">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Age </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> E-Mail </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phoneNo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone No </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneNo}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<div class="home-table" *ngIf="rawData">
+  <p>{{this.dataJson}}</p>
+</div>
