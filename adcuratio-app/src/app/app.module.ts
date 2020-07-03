@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home/home.component';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,12 +13,18 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbTooltipConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
    declarations: [
       AppComponent,
       LoginComponent,
-      RegistrationComponent
+      RegistrationComponent,
+      HomeComponent
    ],
    imports: [
       BrowserModule,
@@ -28,12 +35,19 @@ import { NgbTooltipConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
       MatTooltipModule,
       MatButtonModule,
       ReactiveFormsModule,
-      NgbModule
+      NgbModule,
+      MatTabsModule,
+      MatMenuModule,
+      MatTableModule,
+      MatSortModule,
+      MatSlideToggleModule
    ],
    providers: [
      MatTooltipModule,
      AuthService,
-     NgbTooltipConfig
+     NgbTooltipConfig,
+     MatMenuModule,
+     MatSortModule
    ],
    bootstrap: [
       AppComponent
