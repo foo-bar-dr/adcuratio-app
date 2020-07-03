@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  public failMessage = '';
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, public router: Router) { }
@@ -30,7 +32,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(9)]],
 
     });
 
