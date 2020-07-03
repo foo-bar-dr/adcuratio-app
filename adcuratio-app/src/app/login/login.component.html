@@ -11,9 +11,8 @@
           <mat-icon class="login-form-input-icon-email">email</mat-icon>
         </div>
         <input class="login-form-input default-input" name="email" placeholder="Email ID" formControlName="email">
-        <mat-icon class="login-form-warning-icon"
-        *ngIf="!this.loginForm.controls.email.untouched">warning</mat-icon>
-        <mat-icon class="login-form-warning-icon"
+
+        <mat-icon class="login-form-warning-icon" matTooltip="Invalid E-mail"
         *ngIf="!this.loginForm.controls.email.untouched && this.loginForm.controls.email.errors">warning</mat-icon>
 
       </div>
@@ -24,12 +23,12 @@
         </div>
         <input class="login-form-input" name="password" id="password" type="password" #password
          placeholder="Password" formControlName="password" required ng-touched>
-        <mat-icon class="login-form-warning-icon" matTooltip="Required"
+        <mat-icon class="login-form-warning-icon" matTooltip="Password must be more than 8 characters long"
          *ngIf="!this.loginForm.controls.password.untouched && this.loginForm.controls.password.errors">warning</mat-icon>
       </div>
 
       <div class="login-form-error">
-        <a>Invalid Credentials</a>
+        <a>{{failMessage}}</a>
       </div>
 
       <div >
@@ -37,7 +36,9 @@
       </div>
 
       <div class="login-form-margin">
-        <button mat-raised-button color="primary" type="submit" >Login</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" >Login</button>
+        <!-- <button mat-raised-button color="primary" type="submit"  >Login</button> -->
+
       </div>
 
   </form>

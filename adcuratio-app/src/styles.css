@@ -98,6 +98,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: red;
     margin-top: 1.5%;
     font-weight: 500;
+    height: 20px;
   }
 
   .invalid-form {
