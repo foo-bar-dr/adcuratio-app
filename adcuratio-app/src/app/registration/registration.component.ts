@@ -3,6 +3,7 @@ import { NgbTooltipConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registration',
@@ -14,16 +15,20 @@ export class RegistrationComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
               private router: Router,
-              config: NgbTooltipConfig)
+              config: NgbTooltipConfig,
+              private snackBar: MatSnackBar)
                {
                 config.placement = 'right';
                 config.triggers = 'hover';
                }
 
   register() {
-    console.log(this.registrationForm);
+    // console.log(this.registrationForm);
     if (this.registrationForm.valid) {
       this.authService.newUser(this.registrationForm.value.email, this.registrationForm.value.password);
+      this.snackBar.open('User successfully created', 'DISMISS', {
+        duration: 5000,
+      });
       this.router.navigate(['/']).catch(() => console.log('An error occured'));
     }
   }

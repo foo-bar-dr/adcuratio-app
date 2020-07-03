@@ -112,6 +112,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 18px;
     line-height: 1.7;
   }
+  .warning-icon-black {
+    color: black;
+  }
 
   .login-form-tooltip-icon {
     position: relative;
